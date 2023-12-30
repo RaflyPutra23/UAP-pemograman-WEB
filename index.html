@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Exam Pemograman Web</title>
+    <style>
+        table,th,td{
+            border: 2px solid;
+            text-align: left;
+        }
+
+    </style>
+
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Kode</th>
+            <th>Barang</th>
+            <th>Harga</th>
+        </tr>
+        <tr>
+            <th>001</th>
+            <th>Barang A</th>
+            <th>10.000</th>
+        </tr>
+        <tr>
+            <th>001</th>
+            <th>Barang B</th>
+            <th>20.000</th>
+        </tr>
+        <tr>
+            <th>003</th>
+            <th>Barang C</th>
+            <th>30.000</th>
+        </tr>
+
+    </table>
+    <h1>Inputan User</h1>
+    <table>
+        <tr>
+            <th>Masukkan Kode</th>
+            <th>:</th>
+            <td><input type="text" id="kodeBarang" placeholder="001"></td>
+        </tr>
+        <tr>
+            <th>Banyaknya Barang</th>
+            <th>:</th>
+            <td><input type="number" id="banyakBarang" placeholder="1"></td>
+        </tr>
+        <tr>
+            <th><button onclick="uap()">Submit</button></th>
+        </tr>
+    </table>
+
+    <script>
+var data = [
+    {kode: "001", barang: "Barang A", harga: 10000},
+    {kode: "002", barang: "Barang B", harga: 20000},
+    {kode: "003", barang: "Barang C", harga: 30000},
+]
+
+function uap(){
+    var kodeBarang = document.getElementById("kodeBarang").value;
+    var banyakBarang = parseInt(document.getElementById("banyakBarang").value);
+    var cariBarang = data.find((item) => item.kode === kodeBarang)
+
+    if (cariBarang){
+        var harga = cariBarang.harga ; 
+        var total = harga * banyakBarang;
+        window.alert("Total Pembayaran adalah: " + total);
+        var bayar = window.prompt("Masukkan uang user: ");
+        var kembalian = bayar - total;
+        window.alert("total kembalian anda adalah: " + kembalian);
+
+    } else {
+        window.alert("Kode tidak ada");
+    }
+}
+
+    </script>
+
+    
+</body>
+</html>
